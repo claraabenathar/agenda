@@ -2,7 +2,7 @@
 
 ## Projeto Angular JS ##
 
-P/ execução possui inicialmente dependências do node - npm e bower, posteriormente é preciso de um servidor HTTP (npm install http-server –g) para a devida instalação da aplicação.  
+Possui dependências do node - npm e bower, e precisa de um servidor HTTP (npm install http-server –g) para a devida configuração da aplicação.  
 
 **Passos para instalação**
 1.	Após clone e/ou download do projeto, execute bower install  
