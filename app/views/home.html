@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="alert alert-info" ng-if="message">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" ng-click="clearMessage()">&times;</a>
+            <strong>{{message}}</strong>
+        </div>
+
+        <div class="card">
+
+            <div class="fixed-table-toolbar">
+                <div class="columns columns-right pull-right">
+                    
+                    <button class="btn btn-success" type="button" ng-click="newContato()" name="novo" title="Novo" data-toggle="modal" data-target="#modalForm">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </button>
+                </div>
+
+                <div class="pull-left search">
+                    <input class="form-control" ng-model="searchText" type="text" placeholder="Search" ng-model="search">
+                </div>
+
+            </div>
+
+            <table id="bootstrap-table" class="table">
+                <thead>
+                    <th data-field="nome" data-sortable="true">Nome</th>
+                    <th data-field="nome" data-sortable="true">Sobrenome</th>
+                    <th data-field="telefone" data-sortable="true">Telefone</th>
+                    <th data-field="actions" class="td-actions text-muted" data-events="operateEvents" data-formatter="operateFormatter">
+                        Actions
+                    </th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="contato in contatos | filter: searchText">
+                        <td>{{contato.nome}}</td>
+                        <td>{{contato.sobrenome}}</td>
+                        <td>{{contato.telefone}}</td>
+                        <td>
+                            <a rel="tooltip" title="Detalhes" ng-click="openContato(contato)" class="btn btn-simple btn-info btn-icon table-action view"
+                                data-toggle="modal" data-target="#myModal">
+                                <i class="glyphicon glyphicon-eye-open"></i>
+                            </a>
+                            <a rel="tooltip" title="Editar" ng-click="openContato(contato)" class="btn btn-simple btn-warning btn-icon table-action edit"
+                                data-toggle="modal" data-target="#modalForm">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a rel="tooltip" title="Deletar" ng-click="openContato(contato)" class="btn btn-simple btn-danger btn-icon table-action remove"
+                                data-toggle="modal" data-target="#modalDelete">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!--  end card  -->
+    </div>
+    <!-- end col-md-12 -->
+</div>
+<!-- end row -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Detalhes do contato</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+            </div>
+            <div class="modal-body">
+                <detalhes-contato></detalhes-contato>                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Deseja excluir este contato?</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+            </div>
+            <div class="modal-body">
+                 <detalhes-contato></detalhes-contato> 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary" ng-click="deleteContato()" data-dismiss="modal">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Contato</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <form-contato></form-contato>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                <button type="button" class="btn btn-primary btnsave" ng-click="saveContato()" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

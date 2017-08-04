@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agenda</title>
+    <base href="/">
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body ng-app="appAgenda">
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active" ng-class="{active: activetab == '/'}">
+                        <a href="/">Listagem</a>
+                    </li>
+                    <li role="presentation" ng-class="{active: activetab == '/add'}">
+                        <a href="/add">Cadastro</a>
+                    </li>
+                    <li role="presentation" ng-class="{active: activetab == '/doc'}">
+                        <a href="/doc">Documentação</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Agenda</h3>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <!-- Templates - routes -->
+                <div ng-view></div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2017 Aben-Athar, Clara.</p>
+        </footer>
+
+    </div>
+
+    <script type="application/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="application/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+
+    <script type="application/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../app/app.js"></script>
+    <script type="text/javascript" src="../app/routes.js"></script>
+    <script type="text/javascript" src="../app/config.js"></script>
+
+    <script type="text/javascript" src="../app/controllers/HomeController.js"></script>
+    <script type="text/javascript" src="../app/controllers/AddController.js"></script>
+    <script type="text/javascript" src="../app/controllers/DocController.js"></script>
+    <script type="text/javascript" src="../app/services/ContatosService.js"></script>
+    <script type="text/javascript" src="../app/directives/ContatoDirective.js"></script>
+    <script type="text/javascript" src="../app/directives/FormContatoDirective.js"></script>
+
+</body>
+
+</html>
