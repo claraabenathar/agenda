@@ -33,7 +33,6 @@
                 localStorage.setItem(SETTINGS.CONTATOS, angular.toJson($rootScope.contatos));
 
                 $rootScope.message = "Novo contato adicionado com sucesso";
-                console.log($rootScope.contatos);
                 $location.path('/home');
             } else {
                 $rootScope.mensagem = "Preencha pelo menos um campo";
